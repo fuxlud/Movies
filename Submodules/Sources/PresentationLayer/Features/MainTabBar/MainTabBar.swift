@@ -2,7 +2,7 @@ import SwiftUI
 import DomainLayer
 import DataLayer
 import InfrastructureLayer
-import PresentationLayer_Features_AllBreeds
+import PresentationLayer_Features_AllMedias
 import PresentationLayer_Features_DetailsScreen
 import PresentationLayer_Features_FavoritesScreen
 
@@ -16,7 +16,7 @@ public struct MainTabBar: View {
     
     public var body: some View {
         TabView {
-            allBreedsView
+            homeView
                 .tabItem {
                     Label("Home", systemImage: "popcorn")
                 }
@@ -28,14 +28,14 @@ public struct MainTabBar: View {
         }
     }
     
-    var allBreedsView: some View {
-        let viewModel = BreedsViewModel(
-            breedsUseCase: dependencies.breedsUseCase,
-            breedDetailsUseCase: dependencies.breedDetailsUseCase,
+    var homeView: some View {
+        let viewModel = HomeViewModel(
+            mediasUseCase: dependencies.mediasUseCase,
+            mediaDetailsUseCase: dependencies.mediaDetailsUseCase,
             favoritesUseCase: dependencies.favoritesUseCase,
             favoritingUseCase: dependencies.favoritingUseCase
         )
-        return BreedsView(viewModel: viewModel)
+        return HomeView(viewModel: viewModel)
     }
     
     var favorites: some View {

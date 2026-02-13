@@ -3,35 +3,35 @@ import InfrastructureLayer
 
 @MainActor
 public struct AppDependencies {
-    public let breedsUseCase: any BreedsUseCaseProtocol
-    public let breedDetailsUseCase: any BreedDetailsUseCaseProtocol
+    public let mediasUseCase: any MediasUseCaseProtocol
+    public let mediaDetailsUseCase: any BreedDetailsUseCaseProtocol
     public let favoritesUseCase: any FetchFavoritesUseCaseProtocol
     public let favoritingUseCase: any FavoritingUseCaseProtocol
 
     public init(
-        breedsUseCase: any BreedsUseCaseProtocol,
-        breedDetailsUseCase: any BreedDetailsUseCaseProtocol,
+        mediasUseCase: any MediasUseCaseProtocol,
+        mediaDetailsUseCase: any BreedDetailsUseCaseProtocol,
         favoritesUseCase: any FetchFavoritesUseCaseProtocol,
         favoritingUseCase: any FavoritingUseCaseProtocol
     ) {
-        self.breedsUseCase = breedsUseCase
-        self.breedDetailsUseCase = breedDetailsUseCase
+        self.mediasUseCase = mediasUseCase
+        self.mediaDetailsUseCase = mediaDetailsUseCase
         self.favoritesUseCase = favoritesUseCase
         self.favoritingUseCase = favoritingUseCase
     }
 
     public static func resolve() -> AppDependencies {
         let container = DIContainer.shared
-        guard let breedsUseCase = container.resolve(type: BreedsUseCaseProtocol.self),
-              let breedDetailsUseCase = container.resolve(type: BreedDetailsUseCaseProtocol.self),
+        guard let mediasUseCase = container.resolve(type: MediasUseCaseProtocol.self),
+              let mediaDetailsUseCase = container.resolve(type: BreedDetailsUseCaseProtocol.self),
               let favoritesUseCase = container.resolve(type: FetchFavoritesUseCaseProtocol.self),
               let favoritingUseCase = container.resolve(type: FavoritingUseCaseProtocol.self) else {
             fatalError("Failed to resolve app dependencies.")
         }
 
         return AppDependencies(
-            breedsUseCase: breedsUseCase,
-            breedDetailsUseCase: breedDetailsUseCase,
+            mediasUseCase: mediasUseCase,
+            mediaDetailsUseCase: mediaDetailsUseCase,
             favoritesUseCase: favoritesUseCase,
             favoritingUseCase: favoritingUseCase
         )
