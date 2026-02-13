@@ -120,7 +120,7 @@
 				19268D2B2C1E07560014E23E /* Assets.xcassets */,
 				19268D2D2C1E07560014E23E /* Preview Content */,
 			);
-			path = Movies;
+			path = MoviesApp;
 			sourceTree = "<group>";
 		};
 		19268D2D2C1E07560014E23E /* Preview Content */ = {
@@ -489,7 +489,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Movies/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"MoviesApp/Preview Content\"";
 				DEVELOPMENT_TEAM = MLWUAG6YG2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -523,7 +523,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Movies/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"MoviesApp/Preview Content\"";
 				DEVELOPMENT_TEAM = MLWUAG6YG2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
