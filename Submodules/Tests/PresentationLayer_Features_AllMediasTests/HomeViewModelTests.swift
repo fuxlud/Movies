@@ -1,11 +1,11 @@
 import Testing
 import DomainLayer
-import PresentationLayer_Features_AllBreeds
+import PresentationLayer_Features_AllMedias
 
-struct BreedsViewModelTests {
+struct HomeViewModelTests {
     
-    @Test func whenBreedsFetchedSuccesfully_shouldFillBreedsViewModelArray_andShowCorrectInfo() async {
-        let sut = await makeSUT(breedsUseCase: BreedsUseCaseMock(breeds: BreedEntity.mock))
+    @Test func whenMediasFetchedSuccesfully_shouldFillMediasViewModelArray_andShowCorrectInfo() async {
+        let sut = await makeSUT(mediasUseCase: MediasUseCaseMock(medias: BreedEntity.mock))
         await sut.dispatch(.executeOnceOnAppear)
         
         #expect(sut.state.data?.count == 10)
@@ -17,7 +17,7 @@ struct BreedsViewModelTests {
     }
     
     @Test func whenAstronomiesFetchError_shouldPresentError() async {
-        let sut = await makeSUT(breedsUseCase: BreedsUseCaseMock(error: ErrorEntity.general))
+        let sut = await makeSUT(mediasUseCase: MediasUseCaseMock(error: ErrorEntity.general))
         
         await sut.dispatch(.executeOnceOnAppear)
         
@@ -29,10 +29,10 @@ struct BreedsViewModelTests {
     }
     
     @MainActor
-    func makeSUT(breedsUseCase: some BreedsUseCaseProtocol) -> BreedsViewModel {
-        let sut = BreedsViewModel(
-            breedsUseCase: breedsUseCase,
-            breedDetailsUseCase: BreedDetailsUseCaseMock(),
+    func makeSUT(mediasUseCase: some MediasUseCaseProtocol) -> HomeViewModel {
+        let sut = HomeViewModel(
+            mediasUseCase: mediasUseCase,
+            mediaDetailsUseCase: BreedDetailsUseCaseMock(),
             favoritesUseCase: FetchFavoritesUseCaseMock(),
             favoritingUseCase: FavoritingUseCaseMock()
         )

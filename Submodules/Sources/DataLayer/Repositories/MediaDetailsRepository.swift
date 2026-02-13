@@ -13,24 +13,24 @@ public struct BreedDetailsRepository: BreedDetailsRepositoryProtocol, Sendable {
     }
     
     public func getRemoteBreedDetails(breedName: String) async throws -> [BreedDetailsEntity] {
-        let breedDetailsDTOs: [BreedDetailsDTO] = try await service.getBreedDetails(breedName: breedName)
-        return breedDetailsDTOs.map { $0.toBreedDetailsEntity() }
+        let mediaDetailsDTOs: [BreedDetailsDTO] = try await service.getBreedDetails(breedName: breedName)
+        return mediaDetailsDTOs.map { $0.toBreedDetailsEntity() }
     }
     
     public func fetchFavorites() async -> Set<BreedDetailsEntity> {
         await Set(favoritesManager.fetchFavorites().map { $0.toBreedDetailsEntity() })
     }
     
-    public func toggleLiking(breedDetailsEntity: BreedDetailsEntity) {
+    public func toggleLiking(mediaDetailsEntity: BreedDetailsEntity) {
         Task {
-            await favoritesManager.toggleLiking(breedDetails: breedDetailsEntity.toBreedDetailsDTO())
+            await favoritesManager.toggleLiking(mediaDetails: mediaDetailsEntity.toBreedDetailsDTO())
         }
     }
     
     public var itemsPublisher: AnyPublisher<[BreedDetailsEntity], Never> {
-        favoritesManager.favoriteBreedsPublisher
-            .map { favoriteBreeds in
-                favoriteBreeds.map { $0.toBreedDetailsEntity() }
+        favoritesManager.favoriteMediasPublisher
+            .map { favoriteMedias in
+                favoriteMedias.map { $0.toBreedDetailsEntity() }
             }
             .eraseToAnyPublisher()
     }

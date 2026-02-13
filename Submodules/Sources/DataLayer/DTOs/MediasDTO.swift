@@ -1,14 +1,14 @@
-public struct BreedsDTO: Decodable {
+public struct MediasDTO: Decodable {
 
-    let breeds: [BreedDTO]
+    let medias: [BreedDTO]
     
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: BreedKey.self)
-        var extractedBreeds: [BreedDTO] = []
+        var extractedMedias: [BreedDTO] = []
         for key in container.allKeys{
-            extractedBreeds.append(BreedDTO(name: key.stringValue))
+            extractedMedias.append(BreedDTO(name: key.stringValue))
         }
-        breeds = extractedBreeds
+        medias = extractedMedias
     }
 
     struct BreedKey: CodingKey {

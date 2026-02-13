@@ -1,13 +1,13 @@
 import Combine
 
 public struct FavoritingUseCaseMock: FavoritingUseCaseProtocol {
-    var breedDetailsEntity: BreedDetailsEntity
+    var mediaDetailsEntity: BreedDetailsEntity
     
-    public init(breedDetailsEntity: BreedDetailsEntity) {
-        self.breedDetailsEntity = breedDetailsEntity
+    public init(mediaDetailsEntity: BreedDetailsEntity) {
+        self.mediaDetailsEntity = mediaDetailsEntity
     }
     
-    public func toggleLiking(breedDetailsEntity: BreedDetailsEntity) {
+    public func toggleLiking(mediaDetailsEntity: BreedDetailsEntity) {
         ()
     }
 }

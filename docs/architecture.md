@@ -13,7 +13,7 @@ flowchart TB
 
   subgraph Presentation
     DesignSystem["DesignSystem"]
-    AllBreeds["Features_AllBreeds"]
+    AllMedias["Features_AllMedias"]
     Details["Features_DetailsScreen"]
     Favorites["Features_FavoritesScreen"]
     MainTab["Features_MainTabBar"]
@@ -34,20 +34,20 @@ flowchart TB
   MainApp --> MainTab
   MainApp --> DataLayer
 
-  PreviewApp --> AllBreeds
+  PreviewApp --> AllMedias
   PreviewApp --> DomainLayer
 
-  MainTab --> AllBreeds
+  MainTab --> AllMedias
   MainTab --> Favorites
   MainTab --> Details
   MainTab --> DesignSystem
   MainTab --> DomainLayer
   MainTab --> DataLayer
 
-  AllBreeds --> Details
-  AllBreeds --> DesignSystem
-  AllBreeds --> DomainLayer
-  AllBreeds --> DataLayer
+  AllMedias --> Details
+  AllMedias --> DesignSystem
+  AllMedias --> DomainLayer
+  AllMedias --> DataLayer
 
   Favorites --> Details
   Favorites --> DesignSystem
@@ -84,41 +84,41 @@ flowchart LR
   App["ApplicationNameApp.init()"] --> Register["DIContainerRegistration.registerComponents()"]
   Register --> DI["DIContainer.shared"]
 
-  DI --> UseBreeds["BreedsUseCase"]
+  DI --> UseMedias["MediasUseCase"]
   DI --> UseDetails["BreedDetailsUseCase"]
   DI --> UseFavorites["FetchFavoritesUseCase"]
   DI --> UseFavoriting["FavoritingUseCase"]
 
-  UseBreeds --> RepoBreeds["BreedsRepository"]
+  UseMedias --> RepoMedias["MediasRepository"]
   UseDetails --> RepoDetails["BreedDetailsRepository"]
   UseFavorites --> RepoDetails
   UseFavoriting --> RepoDetails
 
-  RepoBreeds --> Web["WebService"]
+  RepoMedias --> Web["WebService"]
   RepoDetails --> Web
   RepoDetails --> FavMgr["FavoritesManager.shared"]
 ```
 
-## Main Flow: All Breeds
+## Main Flow: All Medias
 
 ```mermaid
 sequenceDiagram
   actor User
-  participant View as BreedsView
-  participant VM as BreedsViewModel
-  participant UC as BreedsUseCase
-  participant Repo as BreedsRepository
+  participant View as MediasView
+  participant VM as MediasViewModel
+  participant UC as MediasUseCase
+  participant Repo as MediasRepository
   participant Web as WebService
   participant Router as NetworkRouter
   participant API as dog.ceo
 
-  User->>View: Open All Breeds
+  User->>View: Open All Medias
   View->>VM: executeOnceOnAppear
-  VM->>UC: getAllBreeds()
-  UC->>Repo: getAllBreeds()
-  Repo->>Web: getAllBreeds()
+  VM->>UC: getAllMedias()
+  UC->>Repo: getAllMedias()
+  Repo->>Web: getAllMedias()
   Web->>Router: request(BreedRequest)
-  Router->>API: HTTP GET /api/breeds/list/all
+  Router->>API: HTTP GET /api/medias/list/all
   API-->>Router: JSON
   Router-->>Web: Data
   Web-->>Repo: [BreedDTO]
@@ -175,9 +175,9 @@ sequenceDiagram
 
   User->>View: Tap heart
   View->>VM: likeButtonTapped()
-  VM->>UC: toggleLiking(breedDetails)
-  UC->>Repo: toggleLiking(breedDetails)
-  Repo->>Fav: toggleLiking(breedDetailsDTO)
+  VM->>UC: toggleLiking(mediaDetails)
+  UC->>Repo: toggleLiking(mediaDetails)
+  Repo->>Fav: toggleLiking(mediaDetailsDTO)
   Fav->>Store: persist favorites (JSON)
   Fav-->>Repo: publishes updated favorites
 ```

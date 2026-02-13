@@ -1,9 +1,9 @@
 public struct BreedDetailsUseCaseMock: BreedDetailsUseCaseProtocol {
-    let breedDetails: [BreedDetailsEntity]?
+    let mediaDetails: [BreedDetailsEntity]?
     let error: Error?
     
-    public init(breedDetails: [BreedDetailsEntity]? = nil, error: Error? = nil) {
-        self.breedDetails = breedDetails
+    public init(mediaDetails: [BreedDetailsEntity]? = nil, error: Error? = nil) {
+        self.mediaDetails = mediaDetails
         self.error = error
     }
 
@@ -11,10 +11,10 @@ public struct BreedDetailsUseCaseMock: BreedDetailsUseCaseProtocol {
         if let error {
             throw error
         }
-        return breedDetails ?? []
+        return mediaDetails ?? []
     }
     
-    public func toggleLiking(breedDetailsEntity: BreedDetailsEntity) {
+    public func toggleLiking(mediaDetailsEntity: BreedDetailsEntity) {
         ()
     }
 }

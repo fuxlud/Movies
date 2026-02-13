@@ -1,7 +1,7 @@
 import Foundation
 
 public protocol FavoritingUseCaseProtocol: Sendable {
-    func toggleLiking(breedDetailsEntity: BreedDetailsEntity)
+    func toggleLiking(mediaDetailsEntity: BreedDetailsEntity)
 }
 
 public struct FavoritingUseCase: FavoritingUseCaseProtocol, Sendable {
@@ -11,7 +11,7 @@ public struct FavoritingUseCase: FavoritingUseCaseProtocol, Sendable {
         self.repository = repository
     }
     
-    public func toggleLiking(breedDetailsEntity: BreedDetailsEntity) {
-        repository.toggleLiking(breedDetailsEntity: breedDetailsEntity)
+    public func toggleLiking(mediaDetailsEntity: BreedDetailsEntity) {
+        repository.toggleLiking(mediaDetailsEntity: mediaDetailsEntity)
     }
 }

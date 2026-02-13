@@ -12,17 +12,17 @@ public struct BreedDetailsUseCase: BreedDetailsUseCaseProtocol, Sendable {
     }
     
     public func getBreedDetails(breedName: String) async throws -> [BreedDetailsEntity] {
-        async let breedDetailsTask = repository.getRemoteBreedDetails(breedName: breedName)
+        async let mediaDetailsTask = repository.getRemoteBreedDetails(breedName: breedName)
         async let favoritesTask = repository.fetchFavorites()
         
-        var breedDetails = try await breedDetailsTask
+        var mediaDetails = try await mediaDetailsTask
         let favorites = await favoritesTask
         
-        for i in 0..<breedDetails.count {
-            if favorites.contains(breedDetails[i]) {
-                breedDetails[i].isFavorite = true
+        for i in 0..<mediaDetails.count {
+            if favorites.contains(mediaDetails[i]) {
+                mediaDetails[i].isFavorite = true
             }
         }
-        return breedDetails
+        return mediaDetails
     }
 }

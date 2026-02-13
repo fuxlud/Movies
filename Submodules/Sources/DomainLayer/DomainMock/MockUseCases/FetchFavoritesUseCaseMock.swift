@@ -3,14 +3,14 @@
 public struct FetchFavoritesUseCaseMock: FetchFavoritesUseCaseProtocol, @unchecked Sendable {
   public var itemsPublisher: AnyPublisher<[BreedDetailsEntity], Never>
   
-  let breedDetails: [BreedDetailsEntity]
+  let mediaDetails: [BreedDetailsEntity]
   
-  public init(breedDetails: [BreedDetailsEntity]) {
-    self.breedDetails = breedDetails
-    self.itemsPublisher = Just(breedDetails).eraseToAnyPublisher()
+  public init(mediaDetails: [BreedDetailsEntity]) {
+    self.mediaDetails = mediaDetails
+    self.itemsPublisher = Just(mediaDetails).eraseToAnyPublisher()
   }
   
   public func fetchFavorites() async -> [BreedDetailsEntity] {
-    return breedDetails
+    return mediaDetails
   }
 }
