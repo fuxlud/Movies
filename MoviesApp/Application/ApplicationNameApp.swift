@@ -1,5 +1,5 @@
 import SwiftUI
-import PresentationLayer_Features_MainTabBar
+import PresentationLayer_Features_AllMedias
 import DataLayer
 
 @main
@@ -15,7 +15,17 @@ struct ApplicationNameApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainTabBar(dependencies: dependencies)
+            homeView
         }
+    }
+    
+    var homeView: some View {
+        let viewModel = HomeViewModel(
+            mediasUseCase: dependencies.mediasUseCase,
+            mediaDetailsUseCase: dependencies.mediaDetailsUseCase,
+            favoritesUseCase: dependencies.favoritesUseCase,
+            favoritingUseCase: dependencies.favoritingUseCase
+        )
+        return HomeView(viewModel: viewModel)
     }
 }

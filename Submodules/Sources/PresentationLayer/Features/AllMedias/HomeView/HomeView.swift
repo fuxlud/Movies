@@ -4,7 +4,7 @@ import PresentationLayer_DesignSystem
 public struct HomeView: View {
     @State private var searchText = "" //TODO: remove from here
     var viewModel: HomeViewModel
-    let spacing: CGFloat = 20
+    let spacing: CGFloat = 70
 
     public init(viewModel: HomeViewModel) {
         self.viewModel = viewModel
