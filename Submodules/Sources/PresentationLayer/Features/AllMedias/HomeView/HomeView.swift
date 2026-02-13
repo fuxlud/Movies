@@ -17,15 +17,18 @@ public struct HomeView: View {
 
                 ScrollView(showsIndicators: false) {
                     VStack(alignment: .leading, spacing: spacing) {
-                        MediasHeaderView( // TODO: set up better
-                            searchText: $searchText,
-                            favoriteCount: viewModel.favoriteCount
-                        )
-
                         showsView
 
                         moviesView
                     }
+                }
+                .safeAreaInset(edge: .bottom) {
+                    SearchBarControlsView(
+                        searchText: $searchText,
+                        favoriteCount: viewModel.favoriteCount
+                    )
+                    .padding(.horizontal)
+                    .padding(.bottom, 8)
                 }
                 //TODO: fix UI
             }
