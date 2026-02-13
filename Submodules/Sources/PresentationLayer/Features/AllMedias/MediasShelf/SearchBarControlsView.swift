@@ -1,7 +1,7 @@
 import SwiftUI
 import PresentationLayer_DesignSystem
 
-struct MediasHeaderView: View {
+struct SearchBarControlsView: View {
     @Binding var searchText: String
     let favoriteCount: Int
     

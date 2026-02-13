@@ -11,7 +11,7 @@ struct MediaShelfView: View {
                 .font(.title2.weight(.bold))
                 .foregroundStyle(.white.opacity(0.95))
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.horizontal, 4)
+                .padding(.horizontal, 16)
 
             GeometryReader { proxy in
                 let spacing: CGFloat = 10
@@ -30,8 +30,8 @@ struct MediaShelfView: View {
                             .buttonStyle(.plain)
                         }
                     }
-                    .padding(.horizontal, 1)
                 }
+                .contentMargins(.horizontal, 16, for: .scrollContent)
             }
             .frame(height: 210)
         }

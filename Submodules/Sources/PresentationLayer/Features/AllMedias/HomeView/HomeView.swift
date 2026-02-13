@@ -27,10 +27,8 @@ public struct HomeView: View {
                         searchText: $searchText,
                         favoriteCount: viewModel.favoriteCount
                     )
-                    .padding(.horizontal)
                     .padding(.bottom, 8)
                 }
-                //TODO: fix UI
             }
         }
     }
