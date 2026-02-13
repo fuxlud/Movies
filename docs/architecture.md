@@ -7,7 +7,7 @@ This document provides a concise, diagram-first overview of the Modularized iOS 
 ```mermaid
 flowchart TB
   subgraph Apps
-    MainApp["MainApplication\n(ApplicationNameApp)"]
+    MainApp["Movies\n(ApplicationNameApp)"]
     PreviewApp["CardPreviewApp\n(CardPreviewApp)"]
   end
 

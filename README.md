@@ -20,7 +20,7 @@ It can be used as a starting point for a project. Simply delete unneeded targets
 ```mermaid
 flowchart TB
   subgraph Apps
-    MainApp["MainApplication\n(ApplicationNameApp)"]
+    MainApp["Movies\n(ApplicationNameApp)"]
     PreviewApp["CardPreviewApp\n(CardPreviewApp)"]
   end
 

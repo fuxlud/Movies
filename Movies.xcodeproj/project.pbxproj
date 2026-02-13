@@ -10,9 +10,6 @@
 		19268D262C1E07550014E23E /* ApplicationNameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19268D252C1E07550014E23E /* ApplicationNameApp.swift */; };
 		19268D2C2C1E07560014E23E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19268D2B2C1E07560014E23E /* Assets.xcassets */; };
 		19268D2F2C1E07560014E23E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19268D2E2C1E07560014E23E /* Preview Assets.xcassets */; };
-		384B66FA2C342C3A00E8CE68 /* CardPreviewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B66F92C342C3A00E8CE68 /* CardPreviewApp.swift */; };
-		384B66FE2C342C3F00E8CE68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 384B66FD2C342C3F00E8CE68 /* Assets.xcassets */; };
-		384B67012C342C3F00E8CE68 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 384B67002C342C3F00E8CE68 /* Preview Assets.xcassets */; };
 		38706BD62C38064200BFB70B /* DomainLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 38C328E32C380D0D00352124 /* DomainLayer */; };
 		38706BDA2C38065700BFB70B /* PresentationLayer_Features_AllBreeds in Frameworks */ = {isa = PBXBuildFile; productRef = 38C328E52C380DD600352124 /* PresentationLayer_Features_AllBreeds */; };
 		38706BDC2C38094E00BFB70B /* DataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 38706BDB2C38094E00BFB70B /* DataLayer */; };
@@ -43,14 +40,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		19268D222C1E07550014E23E /* MainApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MainApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		19268D222C1E07550014E23E /* Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19268D252C1E07550014E23E /* ApplicationNameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationNameApp.swift; sourceTree = "<group>"; };
 		19268D2B2C1E07560014E23E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19268D2E2C1E07560014E23E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		384B66F72C342C3900E8CE68 /* CardPreviewApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardPreviewApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		384B66F92C342C3A00E8CE68 /* CardPreviewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPreviewApp.swift; sourceTree = "<group>"; };
-		384B66FD2C342C3F00E8CE68 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		384B67002C342C3F00E8CE68 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		384B67062C342C4000E8CE68 /* CardPreviewAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardPreviewAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		384B67102C342C4000E8CE68 /* CardPreviewAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardPreviewAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		387B06D42C3BD4770082EDBF /* Submodules */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Submodules; sourceTree = "<group>"; };
@@ -102,8 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				387B06D42C3BD4770082EDBF /* Submodules */,
-				19268D242C1E07550014E23E /* MainApplication */,
-				384B66F82C342C3900E8CE68 /* CardPreviewApp */,
+				19268D242C1E07550014E23E /* Movies */,
 				19268D232C1E07550014E23E /* Products */,
 				198761832C22E48600565BB0 /* Frameworks */,
 			);
@@ -112,7 +105,7 @@
 		19268D232C1E07550014E23E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				19268D222C1E07550014E23E /* MainApplication.app */,
+				19268D222C1E07550014E23E /* Movies.app */,
 				384B66F72C342C3900E8CE68 /* CardPreviewApp.app */,
 				384B67062C342C4000E8CE68 /* CardPreviewAppTests.xctest */,
 				384B67102C342C4000E8CE68 /* CardPreviewAppUITests.xctest */,
@@ -120,14 +113,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		19268D242C1E07550014E23E /* MainApplication */ = {
+		19268D242C1E07550014E23E /* Movies */ = {
 			isa = PBXGroup;
 			children = (
 				1938879C2C1E170F00CF2029 /* Application */,
 				19268D2B2C1E07560014E23E /* Assets.xcassets */,
 				19268D2D2C1E07560014E23E /* Preview Content */,
 			);
-			path = MainApplication;
+			path = Movies;
 			sourceTree = "<group>";
 		};
 		19268D2D2C1E07560014E23E /* Preview Content */ = {
@@ -153,30 +146,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		384B66F82C342C3900E8CE68 /* CardPreviewApp */ = {
-			isa = PBXGroup;
-			children = (
-				384B66F92C342C3A00E8CE68 /* CardPreviewApp.swift */,
-				384B66FD2C342C3F00E8CE68 /* Assets.xcassets */,
-				384B66FF2C342C3F00E8CE68 /* Preview Content */,
-			);
-			path = CardPreviewApp;
-			sourceTree = "<group>";
-		};
-		384B66FF2C342C3F00E8CE68 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				384B67002C342C3F00E8CE68 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		19268D212C1E07550014E23E /* MainApplication */ = {
+		19268D212C1E07550014E23E /* Movies */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 19268D482C1E07560014E23E /* Build configuration list for PBXNativeTarget "MainApplication" */;
+			buildConfigurationList = 19268D482C1E07560014E23E /* Build configuration list for PBXNativeTarget "Movies" */;
 			buildPhases = (
 				19268D1E2C1E07550014E23E /* Sources */,
 				19268D1F2C1E07550014E23E /* Frameworks */,
@@ -186,7 +161,7 @@
 			);
 			dependencies = (
 			);
-			name = MainApplication;
+			name = Movies;
 			packageProductDependencies = (
 				38706BDB2C38094E00BFB70B /* DataLayer */,
 				38C328DF2C380C6700352124 /* PresentationLayer_DesignSystem */,
@@ -198,7 +173,7 @@
 				38F817B12C413AB90045BE3C /* InfrastructureLayer */,
 			);
 			productName = LudushRecipes;
-			productReference = 19268D222C1E07550014E23E /* MainApplication.app */;
+			productReference = 19268D222C1E07550014E23E /* Movies.app */;
 			productType = "com.apple.product-type.application";
 		};
 		384B66F62C342C3900E8CE68 /* CardPreviewApp */ = {
@@ -301,7 +276,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				19268D212C1E07550014E23E /* MainApplication */,
+				19268D212C1E07550014E23E /* Movies */,
 				384B66F62C342C3900E8CE68 /* CardPreviewApp */,
 				384B67052C342C4000E8CE68 /* CardPreviewAppTests */,
 				384B670F2C342C4000E8CE68 /* CardPreviewAppUITests */,
@@ -323,8 +298,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				384B67012C342C3F00E8CE68 /* Preview Assets.xcassets in Resources */,
-				384B66FE2C342C3F00E8CE68 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,7 +330,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				384B66FA2C342C3A00E8CE68 /* CardPreviewApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,7 +489,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MainApplication/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Movies/Preview Content\"";
 				DEVELOPMENT_TEAM = MLWUAG6YG2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -551,7 +523,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MainApplication/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Movies/Preview Content\"";
 				DEVELOPMENT_TEAM = MLWUAG6YG2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -714,7 +686,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		19268D482C1E07560014E23E /* Build configuration list for PBXNativeTarget "MainApplication" */ = {
+		19268D482C1E07560014E23E /* Build configuration list for PBXNativeTarget "Movies" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				19268D492C1E07560014E23E /* Debug */,
