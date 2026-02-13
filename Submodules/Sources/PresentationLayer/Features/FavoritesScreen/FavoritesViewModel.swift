@@ -47,8 +47,8 @@ import InfrastructureLayer
     }
     
     func fetchBreedDetails() async {
-        let breedDetails = await fetchFavoriteBreedDetails()
-        fillBreedDetails(breedDetails)
+        let mediaDetails = await fetchFavoriteBreedDetails()
+        fillBreedDetails(mediaDetails)
     }
     
     private func fetchFavoriteBreedDetails() async -> [BreedDetailsEntity] {
@@ -65,9 +65,9 @@ import InfrastructureLayer
         }
     }
     
-    private func fillBreedDetails(_ breedDetails: [BreedDetailsEntity]) {
-        let detailsCardViewModels = breedDetails.map {
-            BreedImageViewModel(breedDetails: $0, favoritingUseCase: favoritingUseCase)
+    private func fillBreedDetails(_ mediaDetails: [BreedDetailsEntity]) {
+        let detailsCardViewModels = mediaDetails.map {
+            BreedImageViewModel(mediaDetails: $0, favoritingUseCase: favoritingUseCase)
         }
         state = .idle(data: detailsCardViewModels)
     }
@@ -80,9 +80,9 @@ import InfrastructureLayer
         state = .error(message: error.description)
     }
     
-    private func updateViewModels(with breedDetails: [BreedDetailsEntity]) {
-        let detailsCardViewModels = breedDetails.map {
-            BreedImageViewModel(breedDetails: $0, favoritingUseCase: favoritingUseCase)
+    private func updateViewModels(with mediaDetails: [BreedDetailsEntity]) {
+        let detailsCardViewModels = mediaDetails.map {
+            BreedImageViewModel(mediaDetails: $0, favoritingUseCase: favoritingUseCase)
         }
         state = .idle(data: detailsCardViewModels)
     }

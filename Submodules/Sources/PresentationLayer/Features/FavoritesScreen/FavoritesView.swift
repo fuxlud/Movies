@@ -15,16 +15,19 @@ public struct FavoritesView: View {
     let spacing: CGFloat = 20
     
     public var body: some View {
-        ScrollView {
-            LazyVGrid(columns: [ .init(.adaptive( minimum: tileSize ), spacing: spacing)], spacing: spacing) {
-                if let breedDetailsViewModels = viewModel.state.data {
-                    ForEach(breedDetailsViewModels) { breedDetailsViewModel in
-                        
-                        BreedImageView(viewModel: breedDetailsViewModel, tileSize: tileSize)
+        ZStack {
+            AppBackground() //TODO: many places have this zstack and background structure. how can we make it batter. I think sonia did it once. baseView something
+            ScrollView {
+                LazyVGrid(columns: [ .init(.adaptive( minimum: tileSize ), spacing: spacing)], spacing: spacing) {
+                    if let breedDetailsViewModels = viewModel.state.data {
+                        ForEach(breedDetailsViewModels) { breedDetailsViewModel in
+                            
+                            BreedImageView(viewModel: breedDetailsViewModel, tileSize: tileSize)
+                        }
                     }
                 }
+                .padding(spacing)
             }
-            .padding(spacing)
         }
         .navigationBarTitle(viewModel.title)
         .navigationBarTitleDisplayMode(.inline)
