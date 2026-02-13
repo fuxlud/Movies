@@ -18,7 +18,7 @@ public struct MainTabBar: View {
         TabView {
             allBreedsView
                 .tabItem {
-                    Label("All Breeds", systemImage: "pawprint")
+                    Label("Home", systemImage: "popcorn")
                 }
 
             favorites
