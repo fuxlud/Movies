@@ -94,7 +94,11 @@ class MediaShelfViewModel {
             }
             
             let viewModels = response.results.map {
-                BreedViewModel(title: $0.title, rating: $0.voteAverage)
+                BreedViewModel(
+                    title: $0.title,
+                    rating: $0.voteAverage,
+                    posterURL: NetworkHost.tmdbImageURL(path: $0.posterPath, size: .w500)
+                )
             }
             state = .idle(data: viewModels)
         } catch let error as ErrorEntity {

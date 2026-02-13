@@ -1,7 +1,7 @@
 import Foundation
 
 enum NetworkLogger {
-    static func log(request: URLRequest) {
+    static func log(request: URLRequest) { //TODO: use logger
         print("\n - - - - - - - - - - OUTGOING - - - - - - - - - - \n")
         defer { print("\n - - - - - - - - - -  END - - - - - - - - - - \n") }
 

@@ -8,7 +8,7 @@ struct MediaShelfView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             Text(viewModel.title)
-                .font(.title3.weight(.semibold))
+                .font(.title2.weight(.bold))
                 .foregroundStyle(.white.opacity(0.95))
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 4)

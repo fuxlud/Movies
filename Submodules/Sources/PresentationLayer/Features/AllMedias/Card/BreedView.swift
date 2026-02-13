@@ -7,6 +7,8 @@ public struct BreedView: View { //TODO: rename file and folder
     private let tileWidth: CGFloat
     private let tileHeight: CGFloat
     
+    private let cornerRadius: CGFloat = 14
+
     public init(viewModel: BreedViewModel) {
         self.viewModel = viewModel
         self.tileWidth = 120
@@ -20,45 +22,31 @@ public struct BreedView: View { //TODO: rename file and folder
     }
     
     public var body: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            ZStack(alignment: .bottomLeading) {
-                RoundedRectangle(cornerRadius: 14)
-                    .fill(
-                        LinearGradient(
-                            colors: [Color(red: 0.98, green: 0.52, blue: 0.17), Color(red: 0.20, green: 0.27, blue: 0.43)],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                    )
-                    .overlay(
-                        LinearGradient(
-                            colors: [.clear, .black.opacity(0.45)],
-                            startPoint: .center,
-                            endPoint: .bottom
-                        )
-                    )
-                    .overlay(
-                        Text(String(viewModel.title.prefix(1)))
-                            .font(.system(size: 48, weight: .bold, design: .rounded))
-                            .foregroundStyle(.white.opacity(0.25))
-                            .padding(10),
-                        alignment: .topLeading
-                    )
-                
-                Text(viewModel.title)
-                    .font(.subheadline.weight(.semibold))
-                    .lineLimit(1)
-                    .foregroundStyle(.white)
-                    .padding(10)
+        VStack(alignment: .leading, spacing: 8) {
+            ZStack {
+                if let posterURL = viewModel.posterURL {
+                    URLImage(posterURL)
+                        .frame(width: tileWidth, height: tileHeight)
+                        .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
+                } else {
+                    RoundedRectangle(cornerRadius: cornerRadius)
+                        .fill(Color.accentColor)
+                }
             }
             .frame(width: tileWidth, height: tileHeight)
+
+            Text(viewModel.title)
+                .font(.headline.weight(.semibold))
+//                .lineLimit(1)
+                .foregroundStyle(.white)
+                .padding(.leading, 2)
             
             HStack(spacing: 4) {
                 Image(systemName: "star.fill")
-                    .font(.caption2)
+                    .font(.footnote) //TODO: verify large fonts
                     .foregroundStyle(Color(red: 0.58, green: 0.75, blue: 0.89))
                 Text(viewModel.ratingText)
-                    .font(.caption)
+                    .font(.subheadline)
                     .foregroundStyle(.white.opacity(0.85))
             }
             .padding(.leading, 2)

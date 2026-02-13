@@ -1,43 +1,36 @@
 import Foundation
 import DomainLayer
 
-@Observable 
+@Observable
 public class BreedViewModel: Identifiable {
-    private let breed: BreedEntity?
     public let id: UUID
-    private let customTitle: String?
-    private let customRating: Double?
-    
+    public let title: String
+    private let rating: Double?
+    public let posterURL: URL?
+
     public init(breed: BreedEntity) {
-        self.breed = breed
         self.id = UUID()
-        self.customTitle = nil
-        self.customRating = nil
+        self.title = breed.name.capitalized(with: .current)
+        self.rating = nil
+        self.posterURL = nil
     }
-    
-    public init(title: String, rating: Double?) {
-        self.breed = nil
+
+    public init(title: String, rating: Double?, posterURL: URL?) {
         self.id = UUID()
-        self.customTitle = title
-        self.customRating = rating
+        self.title = title
+        self.rating = rating
+        self.posterURL = posterURL
     }
-    
-    public var title: String {
-        if let customTitle {
-            return customTitle
-        }
-        return breed?.name.capitalized(with: .current) ?? ""
-    }
-    
+
     public var ratingText: String {
-        if let customRating {
-            return String(format: "%.1f", customRating)
+        if let rating {
+            return String(format: "%.1f", rating)
         }
         return String(format: "%.1f", calculatedRating)
     }
-    
+
     private var calculatedRating: Double {
-        let hash = abs((breed?.name.hashValue ?? 0) % 6)
+        let hash = abs(title.hashValue % 6)
         return 4.3 + (Double(hash) * 0.1)
     }
 }
