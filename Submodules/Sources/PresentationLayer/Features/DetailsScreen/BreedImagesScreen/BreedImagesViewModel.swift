@@ -10,7 +10,7 @@ public class BreedImagesViewModel {
     public var state: ViewState<[BreedImageViewModel]> = .idle(data: [])
 
     private var breedName: String
-    private let breedDetailsUseCase: BreedDetailsUseCaseProtocol
+    private let mediaDetailsUseCase: BreedDetailsUseCaseProtocol
     private let favoritesUseCase: FetchFavoritesUseCaseProtocol
     private let favoritingUseCase: FavoritingUseCaseProtocol
 
@@ -18,11 +18,11 @@ public class BreedImagesViewModel {
     private var cancellables = Set<AnyCancellable>()
 
     public init(breedName: String,
-                breedDetailsUseCase: BreedDetailsUseCaseProtocol,
+                mediaDetailsUseCase: BreedDetailsUseCaseProtocol,
                 favoritesUseCase: FetchFavoritesUseCaseProtocol,
                 favoritingUseCase: FavoritingUseCaseProtocol) {
         self.breedName = breedName
-        self.breedDetailsUseCase = breedDetailsUseCase
+        self.mediaDetailsUseCase = mediaDetailsUseCase
         self.favoritesUseCase = favoritesUseCase
         self.favoritingUseCase = favoritingUseCase
         subscribeToUpdates()
@@ -55,20 +55,20 @@ public class BreedImagesViewModel {
     }
     
     @MainActor
-    private func updateViewModels(with breedDetails: [BreedDetailsEntity]) async {
+    private func updateViewModels(with mediaDetails: [BreedDetailsEntity]) async {
         
         switch state {
         case .idle(let data):
             for viewModelItem in data {
                 
-                if breedDetails.first(where: { $0.url == viewModelItem.imageUrl }) != nil
+                if mediaDetails.first(where: { $0.url == viewModelItem.imageUrl }) != nil
                 {
-                    if !viewModelItem.breedDetails.isFavorite {
-                        viewModelItem.breedDetails.isFavorite = true
+                    if !viewModelItem.mediaDetails.isFavorite {
+                        viewModelItem.mediaDetails.isFavorite = true
                     }
                 } else {
-                    if viewModelItem.breedDetails.isFavorite {
-                        viewModelItem.breedDetails.isFavorite = false
+                    if viewModelItem.mediaDetails.isFavorite {
+                        viewModelItem.mediaDetails.isFavorite = false
                     }
                 }
             }
@@ -80,15 +80,15 @@ public class BreedImagesViewModel {
     
     func fetchBreedDetails() async {
         do {
-            let breedDetails = try await fetchBreedDetailsRemote()
-            fillBreedDetails(breedDetails)
+            let mediaDetails = try await fetchBreedDetailsRemote()
+            fillBreedDetails(mediaDetails)
         } catch let error {
             handleError(error)
         }
     }
     
     func fetchBreedDetailsRemote() async throws -> [BreedDetailsEntity] {
-        return try await breedDetailsUseCase.getBreedDetails(breedName: breedName)
+        return try await mediaDetailsUseCase.getBreedDetails(breedName: breedName)
     }
     
     @MainActor
@@ -104,9 +104,9 @@ public class BreedImagesViewModel {
     }
     
     @MainActor
-    private func fillBreedDetails(_ breedDetails: [BreedDetailsEntity]) {
-        let detailsCardViewModels = breedDetails.map {
-            BreedImageViewModel(breedDetails: $0,
+    private func fillBreedDetails(_ mediaDetails: [BreedDetailsEntity]) {
+        let detailsCardViewModels = mediaDetails.map {
+            BreedImageViewModel(mediaDetails: $0,
                                 favoritingUseCase: favoritingUseCase) }
         state = .idle(data: detailsCardViewModels)
         items = detailsCardViewModels

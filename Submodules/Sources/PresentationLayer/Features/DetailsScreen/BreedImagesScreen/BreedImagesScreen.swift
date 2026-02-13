@@ -2,7 +2,7 @@ import SwiftUI
 import DomainLayer
 import PresentationLayer_DesignSystem
 
-public struct BreedImagesScreen: View {
+public struct BreedImagesScreen: View { //TODO: rename. should be view not screen
     
     var viewModel: BreedImagesViewModel
     
@@ -14,16 +14,19 @@ public struct BreedImagesScreen: View {
     let spacing: CGFloat = 20
     
     public var body: some View {
-        ScrollView {
-            LazyVGrid(columns: [ .init(.adaptive( minimum: tileSize ), spacing: spacing)], spacing: spacing) {
-                if let breedDetailsViewModels = viewModel.state.data {
-                    ForEach(breedDetailsViewModels) { breedDetailsViewModel in
-                        
-                        BreedImageView(viewModel: breedDetailsViewModel, tileSize: tileSize)
+        ZStack {
+            AppBackground()
+            ScrollView {
+                LazyVGrid(columns: [ .init(.adaptive( minimum: tileSize ), spacing: spacing)], spacing: spacing) {
+                    if let breedDetailsViewModels = viewModel.state.data {
+                        ForEach(breedDetailsViewModels) { breedDetailsViewModel in
+                            
+                            BreedImageView(viewModel: breedDetailsViewModel, tileSize: tileSize)
+                        }
                     }
                 }
+                .padding(spacing)
             }
-            .padding(spacing)
         }
         .navigationBarTitle(viewModel.title)
         .navigationBarTitleDisplayMode(.inline)

@@ -4,27 +4,49 @@ import DataLayer
 
 @Observable 
 public class BreedImageViewModel: Identifiable {
-    var breedDetails: BreedDetailsEntity
+    var mediaDetails: BreedDetailsEntity
     private var favoritingUseCase: FavoritingUseCaseProtocol
     public let id = UUID()
     
-    public init(breedDetails: BreedDetailsEntity,
+    public init(mediaDetails: BreedDetailsEntity,
                 favoritingUseCase: FavoritingUseCaseProtocol) {
-        self.breedDetails = breedDetails
+        self.mediaDetails = mediaDetails
         self.favoritingUseCase = favoritingUseCase
     }
     
     var imageUrl: URL? {
-        breedDetails.url
+        mediaDetails.url
+    }
+    
+    public var title: String {
+        let slug = mediaDetails.url.lastPathComponent
+        let cleanSlug = slug.replacingOccurrences(of: ".jpg", with: "")
+        let parts = cleanSlug
+            .split(separator: "-")
+            .prefix(2)
+            .map { String($0).capitalized }
+        if parts.isEmpty {
+            return "Untitled"
+        }
+        return parts.joined(separator: " ")
+    }
+    
+    var ratingText: String {
+        String(format: "%.1f", calculatedRating)
+    }
+    
+    private var calculatedRating: Double {
+        let hash = abs(mediaDetails.url.absoluteString.hashValue % 7)
+        return 4.3 + (Double(hash) * 0.1)
     }
     
     var isFavorite: Bool {
-        return breedDetails.isFavorite
+        return mediaDetails.isFavorite
     }
     
     func likeButtonTapped() {
-        breedDetails.isFavorite.toggle()
-        favoritingUseCase.toggleLiking(breedDetailsEntity: breedDetails)
+        mediaDetails.isFavorite.toggle()
+        favoritingUseCase.toggleLiking(mediaDetailsEntity: mediaDetails)
     }
 }
 

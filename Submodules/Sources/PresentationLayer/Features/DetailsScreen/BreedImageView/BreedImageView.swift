@@ -28,14 +28,3 @@ public struct BreedImageView: View {
         .shadow(color: Color(.black).opacity(0.2), radius: 5, x: 0, y: 5)
     }
 }
-
-struct DetailsCard_Preview: PreviewProvider {
-    static var previews: some View {
-        let breedDetails = BreedDetailsEntity.mock.first!
-        let useCase = FavoritingUseCaseMock(breedDetailsEntity: breedDetails)
-        let viewModel = BreedImageViewModel(breedDetails: breedDetails, favoritingUseCase: useCase)
-        
-        return BreedImageView(viewModel: viewModel, tileSize: 100)
-            .previewLayout(.sizeThatFits)
-    }
-}
