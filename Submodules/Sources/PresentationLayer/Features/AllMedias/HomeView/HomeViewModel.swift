@@ -8,7 +8,7 @@ import PresentationLayer_Features_DetailsScreen
 @Observable
 public class HomeViewModel {
     public let id = UUID()
-    public var favoriteCount: Int = 0
+    public var favoriteCount: Int = 0 //TODO: remove from here
 
     public let mediasUseCase: MediasUseCaseProtocol
     public let mediaDetailsUseCase: BreedDetailsUseCaseProtocol

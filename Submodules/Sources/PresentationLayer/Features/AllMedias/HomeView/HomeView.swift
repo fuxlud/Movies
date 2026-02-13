@@ -2,7 +2,7 @@ import SwiftUI
 import PresentationLayer_DesignSystem
 
 public struct HomeView: View {
-    @State private var searchText = ""
+    @State private var searchText = "" //TODO: remove from here
     var viewModel: HomeViewModel
     let spacing: CGFloat = 20
 
@@ -17,7 +17,7 @@ public struct HomeView: View {
 
                 ScrollView(showsIndicators: false) {
                     VStack(alignment: .leading, spacing: spacing) {
-                        MediasHeaderView(
+                        MediasHeaderView( // TODO: set up better
                             searchText: $searchText,
                             favoriteCount: viewModel.favoriteCount
                         )
@@ -27,6 +27,7 @@ public struct HomeView: View {
                         moviesView
                     }
                 }
+                //TODO: fix UI
             }
         }
     }
