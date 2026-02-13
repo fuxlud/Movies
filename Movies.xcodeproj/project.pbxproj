@@ -492,12 +492,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MoviesApp/Preview Content\"";
 				DEVELOPMENT_TEAM = MLWUAG6YG2;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = MoviesApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -526,12 +522,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MoviesApp/Preview Content\"";
 				DEVELOPMENT_TEAM = MLWUAG6YG2;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = MoviesApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -560,6 +552,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"CardPreviewApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_TMDB_API_KEY = 3e888661fe61474bed72f4513f787338;
+				INFOPLIST_KEY_TMDB_READ_TOKEN = eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzZTg4ODY2MWZlNjE0NzRiZWQ3MmY0NTEzZjc4NzMzOCIsIm5iZiI6MTc3MTAxMDcwMC45Miwic3ViIjoiNjk4ZjdhOGM0ZWY5ZjAzZGVjODNlZjI2Iiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.aZN6_e4VJPvBWXZU9BMsghF61qvFUVPzuRYjMET-1-E;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -588,6 +582,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"CardPreviewApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_TMDB_API_KEY = 3e888661fe61474bed72f4513f787338;
+				INFOPLIST_KEY_TMDB_READ_TOKEN = eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzZTg4ODY2MWZlNjE0NzRiZWQ3MmY0NTEzZjc4NzMzOCIsIm5iZiI6MTc3MTAxMDcwMC45Miwic3ViIjoiNjk4ZjdhOGM0ZWY5ZjAzZGVjODNlZjI2Iiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.aZN6_e4VJPvBWXZU9BMsghF61qvFUVPzuRYjMET-1-E;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

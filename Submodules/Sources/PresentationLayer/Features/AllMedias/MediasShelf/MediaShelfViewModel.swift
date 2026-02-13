@@ -1,5 +1,6 @@
 import Foundation
 import DomainLayer
+import DataLayer
 import InfrastructureLayer
 import PresentationLayer_Features_DetailsScreen
 
@@ -52,17 +53,7 @@ class MediaShelfViewModel {
     }
 
     var items: [BreedViewModel] {
-        let allItems = state.data ?? []
-        switch type {
-        case .shows:
-            guard !allItems.isEmpty else { return [] }
-            let count = max(allItems.count / 2, 1)
-            return Array(allItems.prefix(count))
-        case .movies:
-            guard allItems.count > 1 else { return allItems }
-            let startIndex = max(allItems.count / 2, 1)
-            return Array(allItems.dropFirst(startIndex))
-        }
+        state.data ?? []
     }
 
     func detailsScreenViewModel(for breedViewModel: BreedViewModel) -> BreedImagesViewModel {
@@ -76,9 +67,36 @@ class MediaShelfViewModel {
     }
 
     private func fetchMedias() async {
+        let candidateKeys = [
+            "TMDB_API_KEY",  // preferred //TODO: remove
+            "TMBD_API_Key",  // common typo fallback
+            "TMDB_API_Key"   // casing fallback
+        ]
+        
+        let apiKey = candidateKeys
+            .compactMap { Bundle.main.object(forInfoDictionaryKey: $0) as? String }
+            .first { !$0.isEmpty }
+        
+        guard let apiKey else { //TODO: remove
+            state = .error(message: "Missing TMDB API key in Info.plist (checked: TMDB_API_KEY, TMBD_API_Key, TMDB_API_Key)")
+            return
+        }
+        
+        let webService = WebService()
+        
         do {
-            let medias = try await mediasUseCase.getAllMedias()
-            state = .idle(data: medias.map { BreedViewModel(breed: $0) })
+            let response: TMDBPopularResponseDTO
+            switch type {
+            case .shows:
+                response = try await webService.getPopularShows(apiKey: apiKey)
+            case .movies:
+                response = try await webService.getPopularMovies(apiKey: apiKey)
+            }
+            
+            let viewModels = response.results.map {
+                BreedViewModel(title: $0.title, rating: $0.voteAverage)
+            }
+            state = .idle(data: viewModels)
         } catch let error as ErrorEntity {
             state = .error(message: error.description)
         } catch {
